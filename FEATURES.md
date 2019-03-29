@@ -1,0 +1,52 @@
+# Task Manager Api Features
+
+- Setup project
+  - [x] express
+  - [x] nodemon
+  - [x] jest, supertest
+  - [ ] mongoose
+  - [ ] multer, sharp
+  - [ ] sendgrid
+- Welcome route
+  - [ ] GET /welcome
+  - [ ] return a welcome message
+- Users routes
+  - [ ] GET /users/me
+    - [ ] Return logged in user profile
+  - [ ] GET /users/:id/avatar
+    - [ ] Return user's avatar
+  - [ ] POST /users
+    - [ ] Create a new user
+  - [ ] POST /users/me/avatar
+    - [ ] Add/Update an avatar to user profile
+  - [ ] POST /users/login
+    - [ ] Login the user and return a token
+  - [ ] POST /users/logout
+    - [ ] Logout the user, remove token in database
+  - [ ] POST /users/logoutAll
+    - [ ] Logout the user from all devices, remove all tokens for the user
+  - [ ] PATCH /users/me
+    - [ ] Update logged in user fields
+  - [ ] DELETE /users/me
+    - [ ] Remove logged in user
+      - [ ] Remove user's tasks
+  - [ ] DELETE /users/me/avatar
+    - [ ] Remove user's avatar
+- Tasks routes
+  - [ ] GET /tasks
+    - [ ] Return all the user tasks
+      - [ ] Filter tasks eg: only completed tasks
+      - [ ] Sort tasks eg: older tasks first, completed tasks first
+      - [ ] Paginate tasks eg: skip two tasks and get only two
+  - [ ] GET /tasks/:id
+    - [ ] Return the task by its id
+      - [ ] Don't show task from other user
+  - [ ] POST /tasts
+    - [ ] Create a new task
+      - [ ] Only if user is logged in
+  - [ ] PATCH /tasks/:id
+    - [ ] Update task fields
+      - [ ] Don't update task from other user
+  - [ ] DELETE /tasks/:id
+    - [ ] Remove the task
+      - [ ] Don't remove task from other user
