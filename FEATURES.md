@@ -8,8 +8,8 @@
   - [ ] multer, sharp
   - [ ] sendgrid
 - Welcome route
-  - [ ] GET /welcome
-  - [ ] return a welcome message
+  - [x] GET /welcome
+  - [x] return a welcome message
 - Users routes
   - [ ] GET /users/me
     - [ ] Return logged in user profile
