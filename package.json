@@ -1,0 +1,27 @@
+{
+  "name": "task-manager-api",
+  "version": "0.1.0",
+  "description": "A task manager api build with Node.js, Express, Mongoose",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "jest --runInBand",
+    "devTest": "jest --watch --runInBand"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "repository": "https://github.com/TituxMetal/task-manager-api",
+  "author": "Desktop | Lang Guillaume <lang.guillaume@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "jest": "^24.5.0",
+    "nodemon": "^1.18.10",
+    "supertest": "^4.0.2"
+  }
+}
