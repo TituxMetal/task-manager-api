@@ -22,7 +22,7 @@
     - [x] Create and return a new user
       - [x] No empty email or password
       - [x] No users with same email
-    - [ ] Hash the user's password
+    - [x] Hash the user's password
     - [ ] Generate and return a token
   - [ ] POST /users/me/avatar
     - [ ] Add/Update an avatar to user profile
