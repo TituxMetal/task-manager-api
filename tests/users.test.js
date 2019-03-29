@@ -44,6 +44,12 @@ describe('POST /users', () => {
     expect(body.user.password).not.toBeDefined()
   })
 
+  it('should hash the user password', async () => {
+    const user = await User.findById(userOne._id)
+
+    expect(user.password).not.toEqual(userOne.password)
+  })
+
   it('should not create users if the same email already exists', async () => {
     const response = await request(server)
       .post('/users')
