@@ -4,7 +4,10 @@
   - [x] express
   - [x] nodemon
   - [x] jest, supertest
-  - [ ] mongoose
+  - [x] mongoose
+  - [x] bcryptjs
+  - [ ] jsonwebtoken
+  - [ ] joi
   - [ ] multer, sharp
   - [ ] sendgrid
 - Welcome route
@@ -15,8 +18,12 @@
     - [ ] Return logged in user profile
   - [ ] GET /users/:id/avatar
     - [ ] Return user's avatar
-  - [ ] POST /users
-    - [ ] Create a new user
+  - [x] POST /users
+    - [x] Create and return a new user
+      - [x] No empty email or password
+      - [x] No users with same email
+    - [x] Hash the user's password
+    - [x] Generate and return a token
   - [ ] POST /users/me/avatar
     - [ ] Add/Update an avatar to user profile
   - [ ] POST /users/login
