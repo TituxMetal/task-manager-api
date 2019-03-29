@@ -18,10 +18,10 @@
     - [ ] Return logged in user profile
   - [ ] GET /users/:id/avatar
     - [ ] Return user's avatar
-  - [ ] POST /users
-    - [ ] Create and return a new user
-      - [ ] No empty email or password
-      - [ ] No users with same email
+  - [x] POST /users
+    - [x] Create and return a new user
+      - [x] No empty email or password
+      - [x] No users with same email
     - [ ] Hash the user's password
     - [ ] Generate and return a token
   - [ ] POST /users/me/avatar
