@@ -25,3 +25,15 @@ Run the tests with `yarn test` or `npm run test`
 Or
 
 Run the tests in watch mode `yarn devTest` or `npm run devTest`
+
+# Available Endpoints
+
+## Create a user
+
+    POST /users
+    parameters:
+      - name:string, required
+      - email:string, required
+      - password:string, required
+      - age:number
+    returns the user data and a token
