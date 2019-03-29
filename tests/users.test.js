@@ -24,7 +24,7 @@ describe('POST /users', () => {
     await new User(userOne).save()
   })
 
-  it('should create and return a new user', async () => {
+  it('should create and return a new user and a token', async () => {
     const { body } = await request(server)
       .post('/users')
       .send(testUser)
@@ -32,6 +32,7 @@ describe('POST /users', () => {
 
     const { name, email } = testUser
     expect(body.user).toMatchObject({ name, email })
+    expect(body.token).toBeDefined()
   })
 
   it('should not return the user password field', async () => {
