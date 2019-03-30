@@ -1,6 +1,9 @@
 const router = require('express').Router()
 
 const User = require('../models/user')
+const auth = require('../middleware/auth')
+
+router.get('/me', auth, async ({ user }, res) => res.send(user))
 
 router.post('/', async ({ body }, res) => {
   try {
