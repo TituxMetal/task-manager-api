@@ -159,4 +159,41 @@ describe('Users routes', () => {
       expect(tokens.length).toBe(0)
     })
   })
+
+  describe('PATCH /users/me', () => {
+    it('should update valid user field', async () => {
+      const { token } = userOne.tokens[0]
+      const { body } = await request(server)
+        .patch('/users/me')
+        .set('Authorization', `Bearer ${token}`)
+        .send({ age: 42 })
+        .expect(200)
+
+      const { age } = await User.findById(userOneId)
+      expect(age).toBe(body.age)
+    })
+
+    it('should not update invalid user field', async () => {
+      const { token } = userOne.tokens[0]
+      const { body } = await request(server)
+        .patch('/users/me')
+        .set('Authorization', `Bearer ${token}`)
+        .send({ age: 42, location: 'New York' })
+        .expect(400)
+
+      const { location, age } = await User.findById(userOneId)
+      expect(body.error).toBe('Invalid updates!')
+      expect(location).not.toBeDefined()
+      expect(age).not.toBe(42)
+    })
+
+    it('should not update unauthenticated user', async () => {
+      const { body } = await request(server)
+        .patch('/users/me')
+        .send({ age: 42 })
+        .expect(401)
+
+      expect(body.error).toBe('Please authenticate.')
+    })
+  })
 })

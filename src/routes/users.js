@@ -59,4 +59,23 @@ router.post('/logoutAll', auth, async ({ user }, res) => {
   }
 })
 
+router.patch('/me', auth, async ({ body, user }, res) => {
+  const updates = Object.keys(body)
+  const allowedUpdates = ['name', 'email', 'password', 'age']
+  const isValidOperation = updates.every(update => allowedUpdates.includes(update))
+
+  if (!isValidOperation) {
+    return res.status(400).send({ error: 'Invalid updates!' })
+  }
+
+  try {
+    updates.forEach(update => (user[update] = body[update]))
+
+    await user.save()
+
+    res.send(user)
+  } catch (e) {
+    res.status(400).send(e.message)
+  }
+})
 module.exports = router

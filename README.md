@@ -66,3 +66,10 @@ Run the tests in watch mode `yarn devTest` or `npm run devTest`
     headers:
       - Authorization Bearer token
     returns the user data
+
+## Update valid user fields
+
+    PATCH /users/me
+    parameters:
+      - valid fields: email, password, name, age
+    returns the user data
