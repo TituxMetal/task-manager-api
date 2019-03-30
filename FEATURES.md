@@ -28,6 +28,8 @@
     - [ ] Add/Update an avatar to user profile
   - [ ] POST /users/login
     - [ ] Login the user and return a token
+    - [ ] User cannot login with bad credentials
+    - [ ] Nonexistent user cannot login
   - [ ] POST /users/logout
     - [ ] Logout the user, remove token in database
   - [ ] POST /users/logoutAll
