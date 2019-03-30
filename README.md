@@ -53,6 +53,13 @@ Run the tests in watch mode `yarn devTest` or `npm run devTest`
       - Authorization Bearer token
     204 No Content
 
+## Remove all tokens from a user
+
+    POST /users/logoutAll
+    headers:
+      - Authorization Bearer token
+    204 No Content
+
 ## Get the user's profile
 
     GET /users/me
