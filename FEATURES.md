@@ -26,10 +26,10 @@
     - [x] Generate and return a token
   - [ ] POST /users/me/avatar
     - [ ] Add/Update an avatar to user profile
-  - [ ] POST /users/login
-    - [ ] Login the user and return a token
-    - [ ] User cannot login with bad credentials
-    - [ ] Nonexistent user cannot login
+  - [x] POST /users/login
+    - [x] Login the user and return a token
+    - [x] User cannot login with bad credentials
+    - [x] Nonexistent user cannot login
   - [ ] POST /users/logout
     - [ ] Logout the user, remove token in database
   - [ ] POST /users/logoutAll
