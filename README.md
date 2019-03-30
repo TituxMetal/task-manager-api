@@ -37,3 +37,11 @@ Run the tests in watch mode `yarn devTest` or `npm run devTest`
       - password:string, required
       - age:number
     returns the user data and a token
+
+## Login a user
+
+    POST /users/login
+    parameters:
+      - email:string, required
+      - password:string, required
+    returns the user data and a token
