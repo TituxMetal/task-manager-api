@@ -34,8 +34,8 @@
     - [x] Logout the user, remove token in database
   - [x] POST /users/logoutAll
     - [x] Logout the user from all devices, remove all tokens for the user
-  - [ ] PATCH /users/me
-    - [ ] Update logged in user fields
+  - [x] PATCH /users/me
+    - [x] Update logged in user fields
   - [ ] DELETE /users/me
     - [ ] Remove logged in user
       - [ ] Remove user's tasks
