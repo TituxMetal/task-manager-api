@@ -21,4 +21,15 @@ router.post('/', async ({ body }, res) => {
   }
 })
 
+router.post('/login', async ({ body: { email, password } }, res) => {
+  try {
+    const user = await User.findByCredentials(email, password)
+    const token = await user.generateAuthToken()
+
+    res.send({ user, token })
+  } catch (e) {
+    res.status(400).send(e.message)
+  }
+})
+
 module.exports = router
