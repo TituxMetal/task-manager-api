@@ -12,7 +12,7 @@ Run the server `yarn start` or `npm run start`
 
 Or
 
-Run the dev server `yart dev` or `npm run dev`
+Run the dev server `yarn dev` or `npm run dev`
 
 # Use it!
 
