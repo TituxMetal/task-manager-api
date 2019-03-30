@@ -15,6 +15,26 @@ describe('Users routes', () => {
     await setupDatabase()
   })
 
+  describe('GET /users/me => Get user profile', () => {
+    it('should get the user profile', async () => {
+      const { token } = userOne.tokens[0]
+      await request(server)
+        .get('/users/me')
+        .set('Authorization', `Bearer ${token}`)
+        .send()
+        .expect(200)
+    })
+
+    it('should not get user profile for unauthenticated user', async () => {
+      const { body } = await request(server)
+        .get('/users/me')
+        .send()
+        .expect(401)
+
+      expect(body.error).toBe('Please authenticate.')
+    })
+  })
+
   describe('POST /users => Create user', () => {
     it('should create and return a new user and a token', async () => {
       const { body } = await request(server)
