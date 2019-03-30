@@ -32,8 +32,8 @@
     - [x] Nonexistent user cannot login
   - [x] POST /users/logout
     - [x] Logout the user, remove token in database
-  - [ ] POST /users/logoutAll
-    - [ ] Logout the user from all devices, remove all tokens for the user
+  - [x] POST /users/logoutAll
+    - [x] Logout the user from all devices, remove all tokens for the user
   - [ ] PATCH /users/me
     - [ ] Update logged in user fields
   - [ ] DELETE /users/me
