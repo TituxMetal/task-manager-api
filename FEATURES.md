@@ -14,8 +14,8 @@
   - [x] GET /welcome
   - [x] return a welcome message
 - Users routes
-  - [ ] GET /users/me
-    - [ ] Return logged in user profile
+  - [x] GET /users/me
+    - [x] Return logged in user profile
   - [ ] GET /users/:id/avatar
     - [ ] Return user's avatar
   - [x] POST /users
