@@ -1,6 +1,6 @@
 {
   "name": "task-manager-api",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "A task manager api build with Node.js, Express, Mongoose",
   "main": "index.js",
   "scripts": {

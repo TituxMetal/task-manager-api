@@ -59,8 +59,26 @@ userSchema.methods.toJSON = function() {
   const userObject = user.toObject()
 
   delete userObject.password
+  delete userObject.tokens
 
   return userObject
+}
+
+userSchema.statics.findByCredentials = async (email, password) => {
+  const user = await User.findOne({ email })
+  const errorMessage = 'Unable to login'
+
+  if (!user) {
+    throw new Error(errorMessage)
+  }
+
+  const isMatch = await bcrypt.compare(password, user.password)
+
+  if (!isMatch) {
+    throw new Error(errorMessage)
+  }
+
+  return user
 }
 
 const User = mongoose.model('User', userSchema)
