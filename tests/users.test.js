@@ -119,4 +119,25 @@ describe('Users routes', () => {
       expect(response.error.text).toBe('Unable to login')
     })
   })
+
+  describe('POST /users/logout', () => {
+    it('should logout an authenticated user', async () => {
+      const { token } = userOne.tokens[0]
+      await request(server)
+        .post('/users/logout')
+        .set('Authorization', `Bearer ${token}`)
+        .send()
+        .expect(204)
+
+      const { tokens } = await User.findById(userOneId)
+      expect(tokens.length).toBe(0)
+    })
+
+    it('should return a 401 error if user is already logged out', async () => {
+      await request(server)
+        .post('/users/logout')
+        .send()
+        .expect(401)
+    })
+  })
 })
