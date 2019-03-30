@@ -47,4 +47,16 @@ router.post('/logout', auth, async ({ user, token }, res) => {
   }
 })
 
+router.post('/logoutAll', auth, async ({ user }, res) => {
+  try {
+    user.tokens = []
+
+    await user.save()
+
+    res.status(204).send()
+  } catch (e) {
+    res.status(500).send(e)
+  }
+})
+
 module.exports = router
