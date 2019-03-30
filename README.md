@@ -45,3 +45,10 @@ Run the tests in watch mode `yarn devTest` or `npm run devTest`
       - email:string, required
       - password:string, required
     returns the user data and a token
+
+## Get the user's profile
+
+    GET /users/me
+    headers:
+      - Authorization Bearer token
+    returns the user data
