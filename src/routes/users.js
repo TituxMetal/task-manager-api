@@ -78,5 +78,4 @@ router.patch('/me', auth, async ({ body, user }, res) => {
     res.status(400).send(e.message)
   }
 })
-
 module.exports = router
