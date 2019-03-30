@@ -140,4 +140,23 @@ describe('Users routes', () => {
         .expect(401)
     })
   })
+
+  describe('POST /users/logoutAll', () => {
+    it('should logout an authenticated user and remove all token for this user', async () => {
+      const { email, password } = userOne
+      const { token } = userOne.tokens[0]
+      await request(server)
+        .post('/users/login')
+        .send({ email, password })
+        .expect(200)
+      await request(server)
+        .post('/users/logoutAll')
+        .set('Authorization', `Bearer ${token}`)
+        .send()
+        .expect(204)
+
+      const { tokens } = await User.findById(userOneId)
+      expect(tokens.length).toBe(0)
+    })
+  })
 })
