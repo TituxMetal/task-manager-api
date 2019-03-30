@@ -30,8 +30,8 @@
     - [x] Login the user and return a token
     - [x] User cannot login with bad credentials
     - [x] Nonexistent user cannot login
-  - [ ] POST /users/logout
-    - [ ] Logout the user, remove token in database
+  - [x] POST /users/logout
+    - [x] Logout the user, remove token in database
   - [ ] POST /users/logoutAll
     - [ ] Logout the user from all devices, remove all tokens for the user
   - [ ] PATCH /users/me

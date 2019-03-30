@@ -46,6 +46,13 @@ Run the tests in watch mode `yarn devTest` or `npm run devTest`
       - password:string, required
     returns the user data and a token
 
+## Logout a user
+
+    POST /users/logout
+    headers:
+      - Authorization Bearer token
+    204 No Content
+
 ## Get the user's profile
 
     GET /users/me
