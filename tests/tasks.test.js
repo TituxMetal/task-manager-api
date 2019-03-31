@@ -2,7 +2,7 @@ const request = require('supertest')
 
 const server = require('../src/server')
 const Task = require('../src/models/task')
-const { userOne, setupDatabase } = require('./fixtures/database')
+const { userOne, userTwo, taskOneId, setupDatabase } = require('./fixtures/database')
 
 describe('Tasks routes', () => {
   beforeEach(setupDatabase)
@@ -37,6 +37,50 @@ describe('Tasks routes', () => {
         .expect(401)
 
       expect(body.error).toBe('Please authenticate.')
+    })
+  })
+
+  describe('PATCH /tasks/:id', () => {
+    it('should update the task with the given Id', async () => {
+      const { token } = userOne.tokens[0]
+      const { body } = await request(server)
+        .patch(`/tasks/${taskOneId}`)
+        .set('Authorization', `Bearer ${token}`)
+        .send({ description: 'Task one updated', completed: true })
+        .expect(200)
+
+      expect(body).toMatchObject({ description: 'Task one updated', completed: true })
+    })
+
+    it('should not update task for unauthenticated user', async () => {
+      const { body } = await request(server)
+        .patch(`/tasks/${taskOneId}`)
+        .send({ description: 'Unauthenticated' })
+        .expect(401)
+
+      expect(body.error).toBe('Please authenticate.')
+    })
+
+    it('should not update task from other users', async () => {
+      const { token } = userTwo.tokens[0]
+      const { body } = await request(server)
+        .patch(`/tasks/${taskOneId}`)
+        .set('Authorization', `Bearer ${token}`)
+        .send({ completed: true })
+        .expect(404)
+
+      expect(body.error).toBe('No task found.')
+    })
+
+    it('should not update invalid task fields', async () => {
+      const { token } = userOne.tokens[0]
+      const { body } = await request(server)
+        .patch(`/tasks/${taskOneId}`)
+        .set('Authorization', `Bearer ${token}`)
+        .send({ checked: true })
+        .expect(400)
+
+      expect(body.error).toBe('Invalid updates.')
     })
   })
 })
