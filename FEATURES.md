@@ -53,9 +53,9 @@
   - [x] POST /tasts
     - [x] Create a new task
       - [x] Only if user is logged in
-  - [ ] PATCH /tasks/:id
-    - [ ] Update task fields
-      - [ ] Don't update task from other user
+  - [x] PATCH /tasks/:id
+    - [x] Update task fields
+      - [x] Don't update task from other user
   - [ ] DELETE /tasks/:id
     - [ ] Remove the task
       - [ ] Don't remove task from other user
