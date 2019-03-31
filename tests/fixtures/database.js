@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken')
 const mongoose = require('mongoose')
 
 const User = require('../../src/models/user')
+const Task = require('../../src/models/task')
 const { jwtSecret } = require('../../src/config')
 
 const userOneId = new mongoose.Types.ObjectId()
@@ -32,6 +33,7 @@ const userTwo = {
 
 const setupDatabase = async () => {
   await User.deleteMany()
+  await Task.deleteMany()
   await new User(userOne).save()
   await new User(userTwo).save()
 }

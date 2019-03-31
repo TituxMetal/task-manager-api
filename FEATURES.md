@@ -50,9 +50,9 @@
   - [ ] GET /tasks/:id
     - [ ] Return the task by its id
       - [ ] Don't show task from other user
-  - [ ] POST /tasts
-    - [ ] Create a new task
-      - [ ] Only if user is logged in
+  - [x] POST /tasts
+    - [x] Create a new task
+      - [x] Only if user is logged in
   - [ ] PATCH /tasks/:id
     - [ ] Update task fields
       - [ ] Don't update task from other user

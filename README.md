@@ -73,3 +73,11 @@ Run the tests in watch mode `yarn devTest` or `npm run devTest`
     parameters:
       - valid fields: email, password, name, age
     returns the user data
+
+## Create a task for authenticated user
+
+    POST /tasks
+    parameters:
+      - description: string, required
+      - completed: boolean
+    returns the task data
