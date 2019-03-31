@@ -81,3 +81,10 @@ Run the tests in watch mode `yarn devTest` or `npm run devTest`
       - description: string, required
       - completed: boolean
     returns the task data
+
+## Update valid task fields
+
+    PATCH /tasks/:id
+    parameters:
+      - valid fields: description, completed
+    returns the task data
